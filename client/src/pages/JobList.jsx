@@ -86,7 +86,9 @@ function JobList({ isCreateModalOpen, filter }) {
   useEffect(() => {
     async function fetchJobs() {
       const response = await axios.post(
-        "https://cybermind-assignment-1.onrender.com/api/jobs",
+        "https://cybermind-assignment-bylp.onrender.com/api/jobs",
+
+        // "http://localhost:5000/api/jobs",
         { collection: "Jobs" }
       );
       const data = response.data.data;

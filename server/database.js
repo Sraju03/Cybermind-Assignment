@@ -1,7 +1,7 @@
 const { MongoClient, ObjectId } = require("mongodb");
 const setupLocalDb = async () => {
   const uri =
-    "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.1";
+    "mongodb+srv://rajusekar2004:0S5Did2D0nrerKAG@cluster0.dsizia2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
   const client = new MongoClient(uri);
   let db;
 
@@ -25,6 +25,8 @@ const setupLocalDb = async () => {
 setupLocalDb();
 async function connectToReplicaSet() {
   const db = await setupLocalDb();
+  console.log(db);
+
   if (!db) {
     return handleError(err, "Couldn't connect to MongoDB");
   }
@@ -62,6 +64,8 @@ async function connectToReplicaSet() {
         return { flag: false, message: "Couldn't insert document" };
       }
     } catch (e) {
+      console.log(e);
+
       return { flag: false, message: e.message };
     }
   }

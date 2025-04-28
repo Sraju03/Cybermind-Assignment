@@ -59,6 +59,8 @@ app.use(express.json());
 // ---- API Routes ----
 app.post("/api/jobs", async (req, res) => {
   const { collection } = req.body;
+  console.log(collection);
+
   try {
     const dbConnection = await connectToReplicaSet();
     const result = await dbConnection.loadCollection(collection);
@@ -76,6 +78,7 @@ app.post("/api/jobs", async (req, res) => {
 
 app.post("/api/create-job", async (req, res) => {
   const { data, collection } = req.body;
+  console.log(data, collection);
 
   try {
     const dbConnection = await connectToReplicaSet();
