@@ -49,7 +49,7 @@ function CreateJobForm(setIsCreateModalOpen) {
       console.log({ ...jobData, submitType });
 
       const response = await axios.post(
-        "https://cybermind-assignment-ckks.onrender.comm/api/create-job",
+        "https://cybermind-assignment-ckks.onrender.com/api/create-job",
         {
           data: jobData,
           collection: "Jobs",
