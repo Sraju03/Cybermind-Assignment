@@ -15,8 +15,8 @@ function JobCard({ job }) {
     >
       <Group justify="space-between" mt="md" mb="xs">
         <img src={amazonLogo} alt="Logo" className="logo" />
-        {/* <Badge color="#B0D9FF">24h ago</Badge> */}
-        <Badge color="#B0D9FF">{job.posted}</Badge>
+        <Badge color="#B0D9FF">24h ago</Badge>
+        {/* <Badge color="#B0D9FF">{job.posted}</Badge> */}
       </Group>
       {/* <Text fw={700}>Full Stack Developer</Text> */}
       <Text fw={700}>{job.jobTitle}</Text>
