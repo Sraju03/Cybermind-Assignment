@@ -1,5 +1,5 @@
-const cors = require("cors");
 const express = require("express");
+const cors = require("cors");
 const connectToReplicaSet = require("./database");
 require("dotenv").config();
 const path = require("path");
