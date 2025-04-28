@@ -1,12 +1,18 @@
 import { Card, Image, Text, Badge, Button, Group, Flex } from "@mantine/core";
-import amazonLogo from "../assets/amazonLogo.png";
 import { IconUserPlus, IconBuildings, IconStack2 } from "@tabler/icons-react";
-
-function JobCard({ job }) {
+import amazon from "../assets/Amazon.png";
+import swiggy from "../assets/Swiggy.png";
+import tesla from "../assets/Tesla.png";
+const companyLogos = {
+  Amazon: amazon,
+  Swiggy: swiggy,
+  Tesla: tesla,
+};
+function JobCard({ job, logo }) {
   return (
     <Card
       maw={316}
-      mah={360}
+      mah="auto"
       mx="auto"
       shadow="sm"
       padding="lg"
@@ -14,8 +20,20 @@ function JobCard({ job }) {
       withBorder
     >
       <Group justify="space-between" mt="md" mb="xs">
-        <img src={amazonLogo} alt="Logo" className="logo" />
-        <Badge color="#B0D9FF">24h ago</Badge>
+        <img
+          src={companyLogos[job.companyName]}
+          alt="Logo"
+          className="logo"
+          style={{
+            width: 63,
+            height: 62,
+            objectFit: "cover",
+            borderRadius: "50% 50%",
+          }}
+        />
+        <Badge color="#B0D9FF" style={{ color: "black" }}>
+          24h ago
+        </Badge>
         {/* <Badge color="#B0D9FF">{job.posted}</Badge> */}
       </Group>
       {/* <Text fw={700}>Full Stack Developer</Text> */}
@@ -34,7 +52,7 @@ function JobCard({ job }) {
         </Flex>
         <Flex>
           <IconStack2 size={16} />
-          <Text size="sm">{job.salaryRangeMin} - {job.salaryRangeMax}</Text>
+          <Text size="sm">{job.salaryRangeMax}</Text>
           {/* <Text size="sm">12 LPA</Text> */}
         </Flex>
       </Group>
@@ -47,7 +65,18 @@ function JobCard({ job }) {
         {job.jobDescription}
       </Text>
 
-      <Button color="blue" fullWidth mt="md" radius="md">
+      <Button
+        color="blue"
+        fullWidth
+        mt="md"
+        radius="xl" // (use xl for a more pill-shaped button)
+        size="md" // (size="md" for normal height)
+        style={{
+          padding: " 10 12",
+          fontWeight: 600,
+          letterSpacing: "0.5px",
+        }}
+      >
         Apply Now
       </Button>
     </Card>
