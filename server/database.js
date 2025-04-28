@@ -1,7 +1,7 @@
-require("dotenv").config();
 const { MongoClient, ObjectId } = require("mongodb");
 const setupLocalDb = async () => {
-  const uri = "process.env.MONGO_URI";
+  const uri =
+    "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.1";
   const client = new MongoClient(uri);
   let db;
 
