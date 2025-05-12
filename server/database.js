@@ -1,5 +1,5 @@
 const { MongoClient, ObjectId } = require("mongodb");
-const setupLocalDb = async () => {
+const setupRemoteDb = async () => {
   const uri =
     "mongodb+srv://rajusekar2004:0S5Did2D0nrerKAG@cluster0.dsizia2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
   const client = new MongoClient(uri);
@@ -22,9 +22,9 @@ const setupLocalDb = async () => {
   }
 };
 
-setupLocalDb();
+setupRemoteDb();
 async function connectToReplicaSet() {
-  const db = await setupLocalDb();
+  const db = await setupRemoteDb();
   console.log(db);
 
   if (!db) {
